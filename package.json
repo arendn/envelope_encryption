@@ -1,0 +1,39 @@
+{
+  "name": "envelope",
+  "version": "0.0.1",
+  "description": "aws envelope encryption example",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.125.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.5.3",
+    "prettyjson": "^1.2.1"
+  },
+  "scripts": {
+    "test": "mocha",
+    "demo": "./demo.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arendn/envelope_encryption.git"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "keywords": [
+    "envelope",
+    "encryption",
+    "kms",
+    "aws"
+  ],
+  "author": "Arend Naylor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arendn/envelope_encryption/issues"
+  },
+  "homepage": "https://github.com/arendn/envelope_encryption#readme"
+}
