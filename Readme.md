@@ -10,7 +10,7 @@
 **NB: Requires KMS ARN to be the specified  environment var CMKID**
 
 ```bash
-export CMKID
+export CMKID=arn:aws:kms:{yourregion}:{youraccount}:key/{yourkeyId}
 npm run demo
 ``` 
 # Tests
