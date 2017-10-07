@@ -1,4 +1,5 @@
-#envelop_encryption demo
+# envelop_encryption demo
+A basic demo toy to show KMS envelope encryption concepts. Not ready for production. Use at your own risk.
 
 # Concepts
 * CMK: Customer Master Key - (AWS Concept): represented by a ARN value

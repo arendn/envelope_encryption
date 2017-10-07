@@ -1,7 +1,7 @@
 {
   "name": "envelope",
   "version": "0.0.1",
-  "description": "aws envelope encryption example",
+  "description": "aws envelope encryption example toy",
   "main": "index.js",
   "directories": {
     "test": "tests"
