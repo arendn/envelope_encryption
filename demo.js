@@ -19,13 +19,14 @@ const cmkId = process.env.CMKID;
 
 (async () => {
   const data = 'this is a secret';
+  console.log(`\nPlaintext data: ${data}`);
   const tmk = await createTenantMasterKey(cmkId);
   const encryptedEnvelope = await encryptEnvelope(cmkId, tmk.cipherText)(data);
   console.log('\nEncrypted Envelope:');
   console.log(prettyjson.render(encryptedEnvelope));
   const decryptedEnvelope = await decryptEnvelope(encryptedEnvelope, 'utf8');
   console.log('\nDecrypted Envelope:');
-  console.log(prettyjson.render(encryptedEnvelope));
+  console.log(prettyjson.render(decryptedEnvelope));
   assert(encryptedEnvelope.dataCipherText !== data);
   assert(decryptedEnvelope.dataPlainText === data);
 })().catch(console.log);
