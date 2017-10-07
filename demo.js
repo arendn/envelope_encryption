@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 const assert = require('assert');
-const prettyjson = require('prettyjson');
+const prettyJson = require('prettyjson');
 const { KMS } = require('aws-sdk');
-const kms = new KMS({ apiVersion: '2014-11-01', region: 'us-west-2' });
+const region = process.env.AWSREGION || 'us-west-2';
+const kms = new KMS({ apiVersion: '2014-11-01', region });
 
 const {
   createTenantMasterKey,
@@ -23,10 +24,10 @@ const cmkId = process.env.CMKID;
   const tmk = await createTenantMasterKey(cmkId);
   const encryptedEnvelope = await encryptEnvelope(cmkId, tmk.cipherText)(data);
   console.log('\nEncrypted Envelope:');
-  console.log(prettyjson.render(encryptedEnvelope));
+  console.log(prettyJson.render(encryptedEnvelope));
   const decryptedEnvelope = await decryptEnvelope(encryptedEnvelope, 'utf8');
   console.log('\nDecrypted Envelope:');
-  console.log(prettyjson.render(decryptedEnvelope));
+  console.log(prettyJson.render(decryptedEnvelope));
   assert(encryptedEnvelope.dataCipherText !== data);
   assert(decryptedEnvelope.dataPlainText === data);
 })().catch(console.log);
