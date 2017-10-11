@@ -47,12 +47,12 @@ module.exports = (kms) => {
     };
   };
 
-  const encryptEnvelope = (cmkid, tmkCipherText) => async (dataPlainText, inputEnc = 'utf8') => {
+  const encryptEnvelope = (cmkId, tmkCipherText) => async (dataPlainText, inputEnc = 'utf8') => {
     const tmkPlainTextBase64 = await decryptTenantMasterKey(tmkCipherText);
     const tdk = await createDataKey(tmkPlainTextBase64.plainText);
     const dataCipherText = encrypt(tdk.plainText)(dataPlainText, inputEnc);
     return {
-      cmkid,
+      cmkId,
       tmkCipherText,
       tdkCipherText: tdk.cipherText,
       dataCipherText,
