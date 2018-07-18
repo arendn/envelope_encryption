@@ -13,7 +13,7 @@ module.exports = (kms) => {
   };
 
   const createTenantMasterKey = async (cmkId) => {
-    const { KeyId, CiphertextBlob, Plaintext, abc } = await kms.generateDataKey({
+    const { KeyId, CiphertextBlob, Plaintext } = await kms.generateDataKey({
       KeyId: cmkId,
       KeySpec: 'AES_256',
     }).promise();
